@@ -1,27 +1,15 @@
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
+let slideIndex = 0;
+showSlides();
 
-.slide {
-  display: none;
-}
-
-img {
-  width: 100%;
-}
-
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
+function showSlides() {
+  let slides = document.getElementsByClassName("slide");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
   }
-  to {
-    opacity: 1;
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1;
   }
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlides, 2000); // 2초마다 슬라이드 전환
 }
